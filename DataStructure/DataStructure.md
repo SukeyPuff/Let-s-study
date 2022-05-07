@@ -225,7 +225,7 @@
 
   * 括号匹配的检验
 
-    ![stack_1](../image/stack_1.png)
+    ![stack_1](./image/stack_1.png)
 
   * 表达式求值（经典栈应用案例）
 
@@ -286,7 +286,7 @@
 
 * 栈与递归（递归工作栈）
 
-  ![stack_2](../image/stack_2.png)
+  ![stack_2](./image/stack_2.png)
 
 * 递归的优缺点：
 
@@ -299,13 +299,13 @@
 
     * 【算法】阶乘
 
-      ![stack_3](../image/stack_3.png)
+      ![stack_3](./image/stack_3.png)
 
     * 【算法】斐波那契数列
 
-      ![stack_4](../image/stack_4.png)
+      ![stack_4](./image/stack_4.png)
 
-      ![stack_5](../image/stack_5.png)
+      ![stack_5](./image/stack_5.png)
 
   * 自用**栈**模拟系统的运行栈
 
@@ -325,11 +325,11 @@
 
 * 循环队列（解决假上溢的方法）
 
-  ![queue_1](../image/queue_1.png)
+  ![queue_1](./image/queue_1.png)
 
 * 循环队列判断队空还是队满：少用一个元素空间
 
-  ![queue_2](../image/queue_2.png)
+  ![queue_2](./image/queue_2.png)
 
 #### 2.2.2 链式队列
 
@@ -441,7 +441,7 @@
 
 #### 4.2.3 完全二叉树
 
-![tree_3](../image/tree_3.png)
+![tree_3](./image/tree_3.png)
 
 * 性质：
   * 具有 n 个结点的完全二叉树的深度为 log<sub>2</sub>n 的对数的底 + 1
@@ -482,7 +482,7 @@
 
 > 二叉树的层次遍历**使用队列实现**
 
-![tree_4](../image/tree_4.png)
+![tree_4](./image/tree_4.png)
 
 
 
@@ -493,7 +493,7 @@
   > * 使用先序遍历生成二叉树
   > * ABC##DE#G##F###
 
-  ![tree_5](../image/tree_5.png)
+  ![tree_5](./image/tree_5.png)
 
 * 【算法】复制二叉树
 
@@ -507,7 +507,7 @@
 
 ### 4.4 线索二叉树
 
-![tree_6](../image/tree_6.png)
+![tree_6](./image/tree_6.png)
 
 
 
@@ -526,7 +526,7 @@
      > * 又称二叉树表示法、**二叉链表**表示法
      > * 链表中每个结点的两个指针域分别指向其**第一个孩子结点**和**下一个兄弟结点**
 
-     ![tree_7](../image/tree_7.png)
+     ![tree_7](./image/tree_7.png)
 
 * 树和二叉树的转换
 
@@ -579,7 +579,7 @@
   3. 删除两小添新人
   4. 重复 2 、3 剩单根
 
-  ![tree_8](../image/tree_8.png)
+  ![tree_8](./image/tree_8.png)
 
 
 
@@ -589,25 +589,25 @@
 
 ## 5. 图
 
-![map_1](../image/map_1.png)
+![map_1](./image/map_1.png)
 
-![map_2](../image/map_2.png)
+![map_2](./image/map_2.png)
 
-![map_3](../image/map_3.png)
+![map_3](./image/map_3.png)
 
-![map_4](../image/map_4.png)
+![map_4](./image/map_4.png)
 
-![map_5](../image/map_5.png)
+![map_5](./image/map_5.png)
 
-![map_6](../image/map_6.png)
+![map_6](./image/map_6.png)
 
-![map_7](../image/map_7.png)
+![map_7](./image/map_7.png)
 
-![map_8](../image/map_8.png)
+![map_8](./image/map_8.png)
 
-![map_9](../image/map_9.png)
+![map_9](./image/map_9.png)
 
-![map_10](../image/map_10.png)
+![map_10](./image/map_10.png)
 
 * 术语：
   * 顶点
@@ -668,7 +668,7 @@
 
 * 广度优先生成树
 
-  ![map_11](../image/map_11.png)
+  ![map_11](./image/map_11.png)
 
 * **最小生成树**
 
@@ -753,11 +753,11 @@
 
 * 非递归算法
 
-  ![search_1](../image/search_1.png)
+  ![search_1](./image/search_1.png)
 
 * 递归算法
 
-  ![search_2](../image/search_2.png)
+  ![search_2](./image/search_2.png)
 
 * 折半查找的性能分析：**判断树**
 
@@ -861,7 +861,7 @@
 
 * 存储结构
 
-  ![sort_1](../image/sort_1.png)
+  ![sort_1](./image/sort_1.png)
 
 
 
@@ -891,7 +891,7 @@
 
 * 基本思想
 
-  ![sort_2](../image/sort_2.png)
+  ![sort_2](./image/sort_2.png)
 
   > 在有序序列中插入一个元素，保持序列有序，有序长度不断增加
 
@@ -901,15 +901,15 @@
 
 * 思想：
 
-  ![sort_3](../image/sort_3.png)
+  ![sort_3](./image/sort_3.png)
 
-  ![sort_4](../image/sort_4.png)
+  ![sort_4](./image/sort_4.png)
 
 
 
 * 【算法】：
 
-  ![sort_5](../image/sort_5.png)
+  ![sort_5](./image/sort_5.png)
 
 
 
@@ -921,7 +921,7 @@
 
 * 【算法】：
 
-  ![sort_6](../image/sort_6.png)
+  ![sort_6](./image/sort_6.png)
 
   
 
@@ -931,13 +931,13 @@
 
 * 思想：
 
-  ![sort_7](../image/sort_7.png)
+  ![sort_7](./image/sort_7.png)
 
 
 
 * 【算法】：
 
-  ![sort_8](../image/sort_8.png)
+  ![sort_8](./image/sort_8.png)
 
 
 
@@ -955,11 +955,11 @@
 
 * 【冒泡排序算法】：
 
-  ![sort_9](../image/sort_9.png)
+  ![sort_9](./image/sort_9.png)
 
 * 【改进的冒泡排序算法】：
 
-  ![sort_10](../image/sort_10.png)
+  ![sort_10](./image/sort_10.png)
 
 
 
@@ -967,17 +967,17 @@
 
 * 思想：任取一个元素为**中心**；所有比它**小**的元素一律往前放，比它**大**的元素一律往后放，形成**左右两个子表**；对各子表重新选择中心元素并**依次规律调整**；直到每个子表的元素**只剩一个**
 
-  ![sort_11](../image/sort_11.png)
+  ![sort_11](./image/sort_11.png)
 
 * 解法：双指针
 
-  ![sort_12](../image/sort_12.png)
+  ![sort_12](./image/sort_12.png)
 
 * 【算法】：
 
-  ![sort_13](../image/sort_13.png)
+  ![sort_13](./image/sort_13.png)
 
-  ![sort_14](../image/sort_14.png)
+  ![sort_14](./image/sort_14.png)
 
   
 
@@ -1013,11 +1013,11 @@
 
 * 暴力破解法
 
-  ![al_1](../image/algorithm/al_1.gif)
+  ![al_1](./image/algorithm/al_1.gif)
 
 * 双指针法
 
-  ![al_2](../image/algorithm/al_2.gif)
+  ![al_2](./image/algorithm/al_2.gif)
 
 
 

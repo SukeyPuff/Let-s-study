@@ -293,14 +293,14 @@ type P = ReturnType<typeof f>;
 
 #### keyof 类型操作符
 
-对一个对象类型使用 `keyof` 操作符，会返回该对象属性名组成的一个字符串或者数字字面量的联合。
+对一个对象**类型**使用 `keyof` 操作符，会返回该对象属性名组成的一个字符串或者数字字面量的联合。
 
 ```
-// 返回该对象属性名组成的一个字符串的联合
+// 返回该对象属性名组成的一个字符串的联合  type
 type Point = { x: number; y: number };
 type P = keyof Point; //  "x" | "y"
 
-// 返回该对象属性名组成的一个数字字面量的联合
+// 返回该对象属性名组成的一个数字字面量的联合  const
 const NumericObject = {
   [1]: "一号",
   [2]: "二号",
@@ -424,7 +424,7 @@ type StrArrOrNumArr = ToArrayNonDist<string | number>; // type StrArrOrNumArr = 
 
 
 
-#### 映射类型（Mapped Types）
+#### 映射类型（Mapped Types）r
 
 映射类型建立在索引签名的语法上，索引签名用于声明没有提前声明的属性类型:
 

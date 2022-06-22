@@ -26,6 +26,7 @@ const _debounce = (fn, delay) => {
   }
 }
 
+//#region test
 function trulyEvent(e, content) {
   console.log(e, content);
 }
@@ -33,7 +34,8 @@ function trulyEvent(e, content) {
 let _event = _debounce(trulyEvent, 1000)
 
 let now = performance.now()
-while (performance.now() - now < 2000) {
+while (performance.now() - now < 1000) {
   // _event("Tom", 'Hello')
   trulyEvent('Tom', 'Hello')
 }
+//#endregion

@@ -21,7 +21,9 @@ const _instanceof = (obj, constr) => {
   return false
 }
 
+//#region test
 let arr = new Array(5)
 
 console.log(_instanceof(arr, Array));
 console.log(_instanceof(arr, Object));
+//#endregion

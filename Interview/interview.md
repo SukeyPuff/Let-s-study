@@ -37,7 +37,7 @@ function deepClone(obj = {}) {
     }
     
     let result = null
-    if (obj instanceOf Array) {
+    if (obj instanceof Array) {
         result = []
     } else {
         result = {}

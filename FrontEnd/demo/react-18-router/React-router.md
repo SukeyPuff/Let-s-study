@@ -2,7 +2,7 @@
 
 ## 1. 概览
 
-### 1.1 Vue Router
+1.1 Vue Router
 
 - **路由组件的基础能力：**
 
@@ -199,23 +199,23 @@
 
      ```jsx
       // 如何理解下面两段代码的区别
-
+  
       // ① 未使用 Switch Component
       <Router>
          <Route path="/" component={<Home />}>
-
+  
          <Route path="/about">
             {
                (props) => <About {...props} />
             }
          </Route>
       </Router>
-
+  
       // ② 使用 Switch Component
       <Router>
          <Switch>
             <Route path="/" component={<Home />}>
-
+  
             <Route path="/about">
                {
                   (props) => <About {...props} />
@@ -282,3 +282,93 @@
       > 使用组件的嵌套逻辑实现路由的嵌套关系。
 
    
+
+
+
+## 4. 深入 API
+
+### 4.1 概览
+
+* 概念：
+
+  |      | 概念                                              |
+  | ---- | ------------------------------------------------- |
+  | 1    | **路由模式**（Different History modes）           |
+  | 2    | **路由组件**（Route Component）                   |
+  | 3    | **路由匹配**（Route Matching）                    |
+  | 4    | **动态路由匹配**（Dynamic Route Matching）        |
+  | 5    | **嵌套路由**（Nested Routing）                    |
+  | 6    | **代码分割**（Code Splitting）                    |
+  | 7    | **动态路由**（Dynamic Routing）                   |
+  | 8    | **编程式导航**（Programmatic Navigation）         |
+  | 9    | **路由传参**（Passing Props to Route Components） |
+
+* API：
+
+  |      | API               |
+  | ---- | ----------------- |
+  | 1    | `useHistory`      |
+  | 2    | `useLocation`     |
+  | 3    | `useParams`       |
+  | 4    | `useRouteMatch`   |
+  | 5    | `<BrowserRouter>` |
+  | 6    | `<HashRouter>`    |
+  | 7    | `<MemoryRouter>`  |
+  | 8    | `<Router>`        |
+  | 9    | `<Link>`          |
+  | 10   | `<NavLink>`       |
+  | 11   | `<Redirect>`      |
+  | 12   | `<Prompt>`        |
+  | 13   | `<Switch>`        |
+  | 14   | `<Route>`         |
+  | 15   | `<StaticRouter>`  |
+  | 16   | generatePath      |
+  | 17   | history           |
+  | 18   | location          |
+  | 19   | match             |
+  | 20   | matchPath         |
+  | 21   | withRouter        |
+
+
+
+
+
+### 4.2 深入
+
+#### 4.2.1 路由模式
+
+* history 模式（**HTML5 History API**）：
+
+  |      | API                             |
+  | ---- | ------------------------------- |
+  | 1    | `window.history.back()`         |
+  | 2    | `window.history.forward()`      |
+  | 3    | `window.history.go()`           |
+  | 4    | `window.history.length`         |
+  | 5    | `window.history.pushState()`    |
+  | 6    | `window.history.replaceState()` |
+  | 7    | `popstate ` 事件                |
+
+* hash 模式（**location 对象**）：
+
+  |      | API                 |
+  | ---- | ------------------- |
+  | 1    | `location.hash`     |
+  | 2    | `location.pathname` |
+  | 3    | `hashchange` 事件   |
+
+  
+
+
+
+#### 4.2.2 路由组件
+
+* 核心组件：
+
+  | 分类                         | 组件                            |
+  | ---------------------------- | ------------------------------- |
+  | routers（路由器）            | `<BrowserRouter>、<HashRouter>` |
+  | route matchers（路由匹配器） | `<Switch>、<Route>`             |
+  | navigation（导航）           | `<Link>、<NavLink>、<Redirect>` |
+
+  

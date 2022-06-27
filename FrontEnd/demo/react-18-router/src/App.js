@@ -1,53 +1,57 @@
-import React from 'react'
-import {HashRouter as Router, Route, Switch} from 'react-router-dom'
+import React, { createContext, useContext, useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation,
+  useRouteMatch
+} from 'react-router-dom'
 
-import Home from './src/views/Home'
-import About from './src/views/About'
-import Login from './src/views/Login'
-import Register from './src/views/Register'
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <OldSchoolMenuLink to="/" label="Home" activeOnlyWhenExact />
+        <OldSchoolMenuLink to="/about" label="About" />
+      </div>
 
-//#region 文档版
-// class App extends React.Component {
-//   mes = {name: 'Tom', age: 20}
-
-//   render() {
-//     return (
-//       <Router>
-//         <Switch>
-//           <Route path="/" exact component={Home} />
-//           <Route path="/about" render={(props) => <About {...props} {...this.mes} />} />
-//           <Route path="/login">
-//             <Login {...this.mes} />
-//           </Route>
-//           <Route path="/register">
-//             {
-//               (props) => <Register {...props} {...this.mes} />
-//             }
-//           </Route>
-//         </Switch>
-//       </Router>
-//     )
-//   }
-// }
-//#endregion
-
-class App extends React.Component {
-  mes = {name: 'Tom', age: 20}
-
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route path="/" component={Home} />
-          {/* <Route path="/about" component={About} /> */}
-          <Route path="/about">
-            {
-              (props) => <About {...props} />
-            }
-          </Route>
-        </Switch>
-      </Router>
-    )
-  }
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+      </Switch>
+    </Router>
+  )
 }
-export default App;
+
+function OldSchoolMenuLink({ to, label, activeOnlyWhenExact }) {
+  console.log(activeOnlyWhenExact);
+
+  let match = useRouteMatch({
+    path: to,
+    exact: activeOnlyWhenExact
+  })
+
+  console.log(match);
+
+  return (
+    <div className={match ? 'active' : ''}>
+      {match ? '> ' : ''}
+      <Link to={to}>{label}</Link>
+    </div>
+  )
+}
+
+function Home() {
+  return (
+    <h2>Home</h2>
+  )
+}
+
+function About() {
+  return (
+    <h2>About</h2>
+  )
+}

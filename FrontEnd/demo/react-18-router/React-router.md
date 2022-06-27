@@ -66,9 +66,21 @@
 
 ## 2. 关于路由的疑问
 
-1. react-router 和 react-router-dom 的区别？
+1. react-router 和 react-router-dom 的区别(关系)？
 
 2. 为什么在 React-router V5 版本中，react-router 与 react-router-dom 中都导出了 BrowserRouter 和 HashRouter。
+
+3. 路由的核心原理是什么？如何改变 url？如何监听 url 变化？如何渲染不同的组件？
+
+4. Context 是如何与 React Router 结合使用的？
+
+5. React 组件（类组件和函数组件）如何获取 URL 参数？
+
+6. useRouteMatch() 返回的 path 和 url 有什么区别？
+
+7. useRouteMatch() 的用法是什么？
+
+8. useHistory、useLoaction 和 useParams 的区别？ 
 
 ## 3. React Router API
 
@@ -176,12 +188,12 @@
 
      - 四种 Route 形式说明：
 
-     | 形式              | 说明 |
-     | ----------------- | ---- |
-     | component 形式    | -    |
-     | render 形式       | -    |
-     | children 形式     | -    |
-     | render props 形式 | -    |
+         | 形式              | 说明 |
+         | ----------------- | ---- |
+         | component 形式    | -    |
+         | render 形式       | -    |
+         | children 形式     | -    |
+         | render props 形式 | -    |
 
    - Switch Component
 
@@ -212,3 +224,61 @@
          </Switch>
       </Router>
      ```
+
+   * Redirect Component
+
+      > Redirect 组件适用于路由不匹配时跳转到指定的路由。
+
+6. 在普通组件中获取路由状态
+
+   * props
+
+      在顶级路由组件中将 props 传递给直接子组件。
+
+   * withRouter
+
+      `withRouter` 是 react-router-dom 提供的一个高阶组件。它的作用是让距离顶级路由组件比较远的深层次组件可以获取到 history、location 等路由状态信息。
+
+   * useHistory & useLocation
+
+      在函数组件中，可以使用 react-router-dom 提供的 `useHistory` 获取 history 对象，使用 `useLocation` 获取 location 对象。
+
+   **注意：**
+
+      无论是使用 `withRouter`，还是 hooks，实际上都是从保持的上下文(Context)中获取的路由信息。所以必须保证所有想要获取路由信息的组件，**都要在根部 Router 组件内部**。
+
+7. 路由跳转
+
+   * Link Component
+
+   * NavLink Component
+
+8. 路由传参
+
+   > 【1】使用对象作为 `history.push()` 的参数，对象中的 `pathname` 属性用来表示路由跳转的路径，其他的属性则可以作为参数传递。【2】被传递的参数被保存在 `this.props.location` 对象中。
+
+   ```jsx
+   // 传递方
+   const name = 'Tom'
+   const age = 20
+
+   history.push({
+      pathname: "/about",
+      name,
+      age
+   })
+
+   // 接收方
+   const {name, age} = props.location
+   ```
+
+9. 动态路由
+
+   `<Route path="/article/:id" to={<Article />} />`
+
+
+10. 嵌套路由
+
+      > 使用组件的嵌套逻辑实现路由的嵌套关系。
+
+   

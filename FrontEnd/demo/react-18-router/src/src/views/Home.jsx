@@ -4,6 +4,11 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      foo: 'Jerry',
+      bar: 30
+    }
+
     const { history } = this.props;
 
     this.history = history;
@@ -14,7 +19,11 @@ class Home extends React.Component {
   }
 
   handleClick = () => {
-    this.history.push("/about");
+    this.history.push({
+      pathname: '/about',
+      foo: this.state.foo,
+      bar: this.state.bar
+    });
   };
 
   toLogin = () => {

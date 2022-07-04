@@ -1,132 +1,73 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Outlet,
-  Link,
-  useNavigate,
-} from "react-router-dom";
-import "./App.css";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="rules" element={<Rules />}>
-            <Route index element={<RulesTable />} />
-            <Route path="detail" element={<Detail />} />
-          </Route>
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
-  );
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: {
+    value: 0,
+  },
+  reducers: {
+    incremented: (state) => {
+      state.value += 1;
+    },
+    decremented: (state) => {
+      state.value -= 1;
+    },
+    incrementedByAmount: (state, action) => {
+      state.value += action.payload;
+    },
+  },
+});
+
+const { incremented, decremented, incrementedByAmount } = counterSlice.actions;
+
+const store = configureStore({
+  reducer: counterSlice.reducer,
+});
+
+const selectCounterValue = (state) => state.value;
+
+const currentValue = selectCounterValue(store.getState());
+
+store.subscribe(() => console.log(store.getState()));
+
+export default function App() {
+  return <Child currentValue={currentValue} />;
 }
 
-function Layout() {
-  return (
-    <div className="layout">
-      <Header />
-      <div className="wrapper">
-        <Sider />
-        <Content />
-      </div>
-    </div>
-  );
-}
+function Child({ currentValue }) {
+  console.log(currentValue);
 
-function Header() {
-  return (
-    <div className="header">
-      <span>Header</span>
-    </div>
-  );
-}
-
-function Sider() {
-  return (
-    <div className="sider">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="rules">Rules</Link>
-        </li>
-        <li>
-          <Link to="dashboard">Dashboard</Link>
-        </li>
-        <li>
-          <Link to="rule">NotFound</Link>
-        </li>
-      </ul>
-    </div>
-  );
-}
-
-function Content() {
-  return (
-    <div className="content">
-      <Outlet />
-    </div>
-  );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function Dashboard() {
-  return <h2>Dashboard</h2>;
-}
-
-function Rules() {
-  return (
-    <>
-      <Outlet />
-    </>
-  );
-}
-
-function RulesTable() {
-  let navigate = useNavigate();
+  const incrementAsync = (amount) => (dispatch) => {
+    setTimeout(() => {
+      dispatch(incrementedByAmount(amount));
+    }, 1000);
+  };
 
   return (
     <>
-      <h2>RulesTable</h2>
+      <h2>{currentValue}</h2>
       <button
         onClick={() => {
-          navigate("detail");
+          store.dispatch(incremented());
         }}
       >
-        Detail
+        +1
       </button>
-    </>
-  );
-}
-
-function Detail() {
-  return <h3>Detail</h3>;
-}
-
-function NotFound() {
-  let navigate = useNavigate();
-
-  return (
-    <>
-      <h1>NotFound</h1>
       <button
         onClick={() => {
-          navigate("/");
+          store.dispatch(decremented());
         }}
       >
-        Back to HomePage
+        -1
       </button>
+      <button
+        onClick={() => {
+          store.dispatch(incrementedByAmount(2));
+        }}
+      >
+        +2
+      </button>
+      <button onClick={() => incrementAsync(4)(store.dispatch)}>async +</button>
     </>
   );
 }
-
-export default App;

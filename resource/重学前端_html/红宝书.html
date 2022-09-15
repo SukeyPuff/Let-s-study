@@ -1,0 +1,598 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>红宝书</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><figure><table><thead><tr><th><span>目录</span></th><th><span>目录</span></th><th><span>目录</span></th><th><span>目录</span></th></tr></thead><tbody><tr><td><span>第1章　JavaScript简介</span><br><span>1.1　JavaScript简史</span><br><span>1.2　JavaScript实现</span><br><span>1.2.1　ECMAScript</span><br><span>1.2.2　文档对象模型（DOM）</span><br><span>1.2.3　浏览器对象模型（BOM）</span><br><span>1.3　JavaScript版本</span><br><br><span>第2章　在HTML中使用JavaScript</span><br><span>2.1　</span><code>&lt;script&gt;</code><span>元素</span><br><span>2.1.1　标签的位置</span><br><span>2.1.2　延迟脚本</span><br><span>2.1.3　异步脚本</span><br><span>2.1.4　在XHTML中的用法</span><br><span>2.1.5　不推荐使用的语法</span><br><span>2.2　嵌入代码与外部文件</span><br><span>2.3　文档模式</span><br><span>2.4　</span><code>&lt;noscript&gt;</code><span>元素</span><br><br><span>第4章　变量、作用域和内存问题</span><br><span>4.1　基本类型和引用类型的值</span><br><span>4.1.1　动态的属性</span><br><span>4.1.2　复制变量值</span><br><span>4.1.3　传递参数</span><br><span>4.1.4　检测类型</span><br><span>4.2　执行环境及作用域</span><br><span>4.2.1　延长作用域链</span><br><span>4.2.2　没有块级作用域</span><br><span>4.3　垃圾收集</span><br><span>4.3.1　标记清除</span><br><span>4.3.2　引用计数</span><br><span>4.3.3　性能问题</span><br><span>4.3.4　管理内存</span></td><td><span>第3章　基本概念</span><br><span>3.1　语法</span><br><span>3.1.1　区分大小写</span><br><span>3.1.2　标识符</span><br><span>3.1.3　注释</span><br><span>3.1.4　严格模式</span><br><span>3.1.5　语句</span><br><span>3.2　关键字和保留字</span><br><span>3.3　变量</span><br><span>3.4　数据类型</span><br><span>3.4.1　typeof操作符</span><br><span>3.4.2　Undefined类型</span><br><span>3.4.3　Null类型</span><br><span>3.4.4　Boolean类型</span><br><span>3.4.5　Number类型</span><br><span>3.4.6　String类型</span><br><span>3.4.7　Object类型</span><br><span>3.5　操作符</span><br><span>3.5.1　一元操作符</span><br><span>3.5.2　位操作符</span><br><span>3.5.3　布尔操作符</span><br><span>3.5.4　乘性操作符</span><br><span>3.5.5　加性操作符</span><br><span>3.5.6　关系操作符</span><br><span>3.5.7　相等操作符</span><br><span>3.5.8　条件操作符</span><br><span>3.5.9　赋值操作符</span><br><span>3.5.10　逗号操作符</span><br><span>3.6　语句</span><br><span>3.6.1　if语句</span><br><span>3.6.2　do-while语句</span><br><span>3.6.3　while语句</span><br><span>3.6.4　for语句</span><br><span>3.6.5　for-in语句</span><br><span>3.6.6　label语句</span><br><span>3.6.7　break和continue语句</span><br><span>3.6.8　with语句</span><br><span>3.6.9　switch语句</span><br><span>3.7　函数</span><br><span>3.7.1　理解参数</span><br><span>3.7.2　没有重载</span></td><td><span>第5章　引用类型</span><br><span>5.1　Object类型</span><br><span>5.2　Array类型</span><br><span>5.2.1　检测数组</span><br><span>5.2.2　转换方法</span><br><span>5.2.3　栈方法</span><br><span>5.2.4　队列方法</span><br><span>5.2.5　重排序方法</span><br><span>5.2.6　操作方法</span><br><span>5.2.7　位置方法</span><br><span>5.2.8　迭代方法</span><br><span>5.2.9　缩小方法</span><br><span>5.3　Date类型</span><br><span>5.3.1　继承的方法</span><br><span>5.3.2　日期格式化方法</span><br><span>5.3.3　日期/时间组件方法</span><br><span>5.4　RegExp类型</span><br><span>5.4.1　RegExp实例属性</span><br><span>5.4.2　RegExp实例方法</span><br><span>5.4.3　RegExp构造函数属性</span><br><span>5.4.4　模式的局限性</span><br><span>5.5　Function类型</span><br><span>5.5.1　没有重载（深入理解）</span><br><span>5.5.2　函数声明与函数表达式</span><br><span>5.5.3　作为值的函数</span><br><span>5.5.4　函数内部属性</span><br><span>5.5.5　函数属性和方法</span><br><span>5.6　基本包装类型</span><br><span>5.6.1　Boolean类型</span><br><span>5.6.2　Number类型</span><br><span>5.6.3　String类型</span><br><span>5.7　单体内置对象</span><br><span>5.7.1　Global对象</span><br><span>5.7.2　Math对象</span></td><td><span>第6章　面向对象的程序设计</span><br><span>6.1　理解对象</span><br><span>6.1.1　属性类型</span><br><span>6.1.2　定义多个属性</span><br><span>6.1.3　读取属性的特性</span><br><span>6.2　创建对象</span><br><span>6.2.1　工厂模式</span><br><span>6.2.2　构造函数模式</span><br><span>6.2.3　原型模式</span><br><span>6.2.4　组合使用构造函数模式和原型模式</span><br><span>6.2.5　动态原型模式</span><br><span>6.2.6　寄生构造函数模式</span><br><span>6.2.7　稳妥构造函数模式</span><br><span>6.3　继承</span><br><span>6.3.1　原型链</span><br><span>6.3.2　借用构造函数</span><br><span>6.3.3　组合继承</span><br><span>6.3.4　原型式继承</span><br><span>6.3.5　寄生式继承</span><br><span>6.3.6　寄生组合式继承</span><br><br><span>第7章　函数表达式</span><br><span>7.1　递归</span><br><span>7.2　闭包</span><br><span>7.2.1　闭包与变量</span><br><span>7.2.2　关于this对象</span><br><span>7.2.3　内存泄漏</span><br><span>7.3　模仿块级作用域</span><br><span>7.4　私有变量</span><br><span>7.4.1　静态私有变量</span><br><span>7.4.2　模块模式</span><br><span>7.4.3　增强的模块模式</span></td></tr><tr><td><span>第8章　BOM</span><br><span>8.1　window对象</span><br><span>8.1.1　全局作用域</span><br><span>8.1.2　窗口关系及框架</span><br><span>8.1.3　窗口位置</span><br><span>8.1.4　窗口大小</span><br><span>8.1.5　导航和打开窗口</span><br><span>8.1.6　间歇调用和超时调用</span><br><span>8.1.7　系统对话框</span><br><span>8.2　location对象</span><br><span>8.2.1　查询字符串参数</span><br><span>8.2.2　位置操作</span><br><span>8.3　navigator对象</span><br><span>8.3.1　检测插件</span><br><span>8.3.2　注册处理程序</span><br><span>8.4　screen对象</span><br><span>8.5　history对象</span></td><td><span>第9章　客户端检测</span><br><span>9.1　能力检测</span><br><span>9.1.1　更可靠的能力检测</span><br><span>9.1.2　能力检测，不是浏览器检测</span><br><span>9.2　怪癖检测</span><br><span>9.3　用户代理检测</span><br><span>9.3.1　用户代理字符串的历史</span><br><span>9.3.2　用户代理字符串检测技术</span><br><span>9.3.3　完整的代码</span><br><span>9.3.4　使用方法</span></td><td><span>第10章　DOM</span><br><span>10.1　节点层次</span><br><span>10.1.1　Node类型</span><br><span>10.1.2　Document类型</span><br><span>10.1.3　Element类型</span><br><span>10.1.4　Text类型</span><br><span>10.1.5　Comment类型</span><br><span>10.1.6　CDATASection类型</span><br><span>10.1.7　DocumentType类型</span><br><span>10.1.8　DocumentFragment类型</span><br><span>10.1.9　Attr类型</span><br><span>10.2　DOM操作技术</span><br><span>10.2.1　动态脚本</span><br><span>10.2.2　动态样式</span><br><span>10.2.3　操作表格</span><br><span>10.2.4　使用NodeList</span></td><td><span>第11章　DOM扩展</span><br><span>11.1　选择符API</span><br><span>11.1.1　querySelector()方法</span><br><span>11.1.2　querySelectorAll()</span><br><span>方法</span><br><span>11.1.3　matchesSelector()</span><br><span>方法</span><br><span>11.2　元素遍历</span><br><span>11.3　HTML5</span><br><span>11.3.1　与类相关的扩充</span><br><span>11.3.2　焦点管理</span><br><span>11.3.3　HTMLDocument的变化</span><br><span>11.3.4　字符集属性</span><br><span>11.3.5　自定义数据属性</span><br><span>11.3.6　插入标记</span><br><span>11.3.7　scrollIntoView()方法</span><br><span>11.4　专有扩展</span><br><span>11.4.1　文档模式</span><br><span>11.4.2　children属性</span><br><span>11.4.3　contains()方法</span><br><span>11.4.4　插入文本</span><br><span>11.4.5　滚动</span></td></tr><tr><td><span>第12章　DOM2和DOM3</span><br><span>12.1　DOM变化</span><br><span>12.1.1　针对XML命名空间的变化</span><br><span>12.1.2　其他方面的变化</span><br><span>12.2　样式</span><br><span>12.2.1　访问元素的样式</span><br><span>12.2.2　操作样式表</span><br><span>12.2.3　元素大小</span><br><span>12.3　遍历</span><br><span>12.3.1　NodeIterator</span><br><span>12.3.2　TreeWalker</span><br><span>12.4　范围</span><br><span>12.4.1　DOM中的范围</span><br><span>12.4.2　IE8及更早版本中的范围</span><br><span>第14章　表单脚本</span><br><span>14.1　表单的基础知识</span><br><span>14.1.1　提交表单</span><br><span>14.1.2　重置表单</span><br><span>14.1.3　表单字段</span><br><span>14.2　文本框脚本</span><br><span>14.2.1　选择文本</span><br><span>14.2.2　过滤输入</span><br><span>14.2.3　自动切换焦点</span><br><span>14.2.4　HTML5约束验证API</span><br><span>14.3　选择框脚本</span><br><span>14.3.1　选择选项</span><br><span>14.3.2　添加选项</span><br><span>14.3.3　移除选项</span><br><span>14.3.4　移动和重排选项</span><br><span>14.4　表单序列化</span><br><span>14.5　富文本编辑</span><br><span>14.5.1　使用contenteditable</span><br><span>属性</span><br><span>14.5.2　操作富文本</span><br><span>14.5.3　富文本选区</span><br><span>14.5.4　表单与富文本</span></td><td><span>第13章　事件</span><br><span>13.1　事件流</span><br><span>13.1.1　事件冒泡</span><br><span>13.1.2　事件捕获</span><br><span>13.1.3　DOM事件流</span><br><span>13.2　事件处理程序</span><br><span>13.2.1　HTML事件处理程序</span><br><span>13.2.2　DOM0级事件处理程序</span><br><span>13.2.3　DOM2级事件处理程序</span><br><span>13.2.4　IE事件处理程序</span><br><span>13.2.5　跨浏览器的事件处理程序</span><br><span>13.3　事件对象</span><br><span>13.3.1　DOM中的事件对象</span><br><span>13.3.2　IE中的事件对象</span><br><span>13.3.3　跨浏览器的事件对象</span><br><span>13.4　事件类型</span><br><span>13.4.1　UI事件</span><br><span>13.4.2　焦点事件</span><br><span>13.4.3　鼠标与滚轮事件</span><br><span>13.4.4　键盘与文本事件</span><br><span>13.4.5　复合事件</span><br><span>13.4.6　变动事件</span><br><span>13.4.7　HTML5事件</span><br><span>13.4.8　设备事件</span><br><span>13.4.9　触摸与手势事件</span><br><span>13.5　内存和性能</span><br><span>13.5.1　事件委托</span><br><span>13.5.2　移除事件处理程序</span><br><span>13.6　模拟事件</span><br><span>13.6.1　DOM中的事件模拟</span><br><span>13.6.2　IE中的事件模拟</span></td><td><span>第15章　使用Canvas绘图</span><br><span>15.1　基本用法</span><br><span>15.2　2D上下文</span><br><span>15.2.1　填充和描边</span><br><span>15.2.2　绘制矩形</span><br><span>15.2.3　绘制路径</span><br><span>15.2.4　绘制文本</span><br><span>15.2.5　变换</span><br><span>15.2.6　绘制图像</span><br><span>15.2.7　阴影</span><br><span>15.2.8　渐变</span><br><span>15.2.9　模式</span><br><span>15.2.10　使用图像数据</span><br><span>15.2.11　合成</span><br><span>15.3　WebGL</span><br><span>15.3.1　类型化数组</span><br><span>15.3.2　WebGL上下文</span><br><span>15.3.3　支持</span><br><br><span>第16章　HTML5脚本编程</span><br><span>16.1　跨文档消息传递</span><br><span>16.2　原生拖放</span><br><span>16.2.1　拖放事件</span><br><span>16.2.2　自定义放置目标</span><br><span>16.2.3　dataTransfer对象</span><br><span>16.2.4　dropEffect与effectAllowed</span><br><span>16.2.5　可拖动</span><br><span>16.2.6　其他成员</span><br><span>16.3　媒体元素</span><br><span>16.3.1　属性</span><br><span>16.3.2　事件</span><br><span>16.3.3　自定义媒体播放器</span><br><span>16.3.4　检测编解码器的支持情况</span><br><span>16.3.5　Audio类型</span><br><span>16.4　历史状态管理</span></td><td><span>第17章　错误处理与调试</span><br><span>17.1　浏览器报告的错误</span><br><span>17.1.1　IE</span><br><span>17.1.2　Firefox</span><br><span>17.1.3　Safari</span><br><span>17.1.4　Opera</span><br><span>17.1.5　Chrome</span><br><span>17.2　错误处理</span><br><span>17.2.1　try-catch语句</span><br><span>17.2.2　抛出错误</span><br><span>17.2.3　错误（error）事件</span><br><span>17.2.4　处理错误的策略</span><br><span>17.2.5　常见的错误类型</span><br><span>17.2.6　区分致命错误和非致命</span><br><span>错误</span><br><span>17.2.7　把错误记录到服务器</span><br><span>17.3　调试技术</span><br><span>17.3.1　将消息记录到控制台</span><br><span>17.3.2　将消息记录到当前页面</span><br><span>17.3.3　抛出错误</span><br><span>17.4　常见的IE错误</span><br><span>17.4.1　操作终止</span><br><span>17.4.2　无效字符</span><br><span>17.4.3　未找到成员</span><br><span>17.4.4　未知运行时错误</span><br><span>17.4.5　语法错误</span><br><span>17.4.6　系统无法找到指定资源</span><br><br><span>第18章　JavaScript与XML</span><br><span>18.1　浏览器对XML DOM的支持</span><br><span>18.1.1　DOM2级核心</span><br><span>18.1.2　DOMParser类型</span><br><span>18.1.3　XMLSerializer类型</span><br><span>18.1.4　IE8及之前版本中的XML</span><br><span>18.1.5　跨浏览器处理XML</span><br><span>18.2　浏览器对XPath的支持</span><br><span>18.2.1　DOM3级XPath</span><br><span>18.2.2　IE中的XPath</span><br><span>18.2.3　跨浏览器使用XPath</span><br><span>18.3　浏览器对XSLT的支持</span><br><span>18.3.1　IE中的XSLT</span><br><span>18.3.2　XSLTProcessor类型</span><br><span>18.3.3　跨浏览器使用XSLT</span></td></tr><tr><td><span>第19章　E4X</span><br><span>19.1　E4X的类型</span><br><span>19.1.1　XML类型</span><br><span>19.1.2　XMLList类型</span><br><span>19.1.3　Namespace类型</span><br><span>19.1.4　QName类型</span><br><span>19.2　一般用法</span><br><span>19.2.1　访问特性</span><br><span>19.2.2　其他节点类型</span><br><span>19.2.3　查询</span><br><span>19.2.4　构建和操作XML</span><br><span>19.2.5　解析和序列化</span><br><span>19.2.6　命名空间</span><br><span>19.3　其他变化</span><br><span>19.4　全面启用E4X</span><br><br><span>第20章　JSON</span><br><span>20.1　语法</span><br><span>20.1.1　简单值</span><br><span>20.1.2　对象</span><br><span>20.1.3　数组</span><br><span>20.2　解析与序列化</span><br><span>20.2.1　JSON对象</span><br><span>20.2.2　序列化选项</span><br><span>20.2.3　解析选项</span></td><td><span>第21章　Ajax与Comet</span><br><span>21.1　XMLHttpRequest对象</span><br><span>21.1.1　XHR的用法</span><br><span>21.1.2　HTTP头部信息</span><br><span>21.1.3　GET请求</span><br><span>21.1.4　POST请求</span><br><span>21.2　XMLHttpRequest 2级</span><br><span>21.2.1　FormData</span><br><span>21.2.2　超时设定</span><br><span>21.2.3　overrideMimeType()</span><br><span>方法</span><br><span>21.3　进度事件</span><br><span>21.3.1　load事件</span><br><span>21.3.2　progress事件</span><br><span>21.4　跨源资源共享</span><br><span>21.4.1　IE对CORS的实现</span><br><span>21.4.2　其他浏览器对CORS的</span><br><span>实现</span><br><span>21.4.3　Preflighted Reqeusts</span><br><span>21.4.4　带凭据的请求</span><br><span>21.4.5　跨浏览器的CORS</span><br><span>21.5　其他跨域技术</span><br><span>21.5.1　图像Ping</span><br><span>21.5.2　JSONP</span><br><span>21.5.3　Comet</span><br><span>21.5.4　服务器发送事件</span><br><span>21.5.5　Web Sockets</span><br><span>21.5.6　SSE与Web Sockets</span><br><span>21.6　安全</span></td><td><span>第22章　高级技巧</span><br><span>22.1　高级函数</span><br><span>22.1.1　安全的类型检测</span><br><span>22.1.2　作用域安全的构造函数</span><br><span>22.1.3　惰性载入函数</span><br><span>22.1.4　函数绑定</span><br><span>22.1.5　函数柯里化</span><br><span>22.2　防篡改对象</span><br><span>22.2.1　不可扩展对象</span><br><span>22.2.2　密封的对象</span><br><span>22.2.3　冻结的对象</span><br><span>22.3　高级定时器</span><br><span>22.3.1　重复的定时器</span><br><span>22.3.2　Yielding Processes</span><br><span>22.3.3　函数节流</span><br><span>22.4　自定义事件</span><br><span>22.5　拖放</span><br><span>22.5.1　修缮拖动功能</span><br><span>22.5.2　添加自定义事件</span><br><br><span>第23章　离线应用与客户端存储</span><br><span>23.1　离线检测</span><br><span>23.2　应用缓存</span><br><span>23.3　数据存储</span><br><span>23.3.1　Cookie</span><br><span>23.3.2　IE用户数据</span><br><span>23.3.3　Web存储机制</span><br><span>23.3.4　IndexedDB</span></td><td><span>第24章　最佳实践</span><br><span>24.1　可维护性</span><br><span>24.1.1　什么是可维护的代码</span><br><span>24.1.2　代码约定</span><br><span>24.1.3　松散耦合</span><br><span>24.1.4　编程实践</span><br><span>24.2　性能</span><br><span>24.2.1　注意作用域</span><br><span>24.2.2　选择正确方法</span><br><span>24.2.3　最小化语句数</span><br><span>24.2.4　优化DOM交互</span><br><span>24.3　部署</span><br><span>24.3.1　构建过程</span><br><span>24.3.2　验证</span><br><span>24.3.3　压缩</span><br><br><span>第25章　新兴的API</span><br><span>25.1　requestAnimationFrame()</span><br><span>25.1.1　早期动画循环</span><br><span>25.1.2　循环间隔的问题</span><br><span>25.1.3　mozRequestAnimation-Frame</span><br><span>25.1.4　webkitRequestAnima-tionFrame与msRequest-AnimationFrame</span><br><span>25.2　Page Visibility API</span><br><span>25.3　Geolocation API</span><br><span>25.4　File API</span><br><span>25.4.1　FileReader类型</span><br><span>25.4.2　读取部分内容</span><br><span>25.4.3　对象URL</span><br><span>25.4.4　读取拖放的文件</span><br><span>25.4.5　使用XHR上传文件</span><br><span>25.5　Web计时</span><br><span>25.6　Web Workers</span><br><span>25.6.1　使用Worker</span><br><span>25.6.2　Worker全局作用域</span><br><span>25.6.3　包含其他脚本</span><br><span>25.6.4　Web Workers的未来</span></td></tr></tbody></table></figure><p>&nbsp;</p></div></div>
+</body>
+</html>
